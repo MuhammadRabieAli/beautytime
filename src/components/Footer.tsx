@@ -26,9 +26,9 @@ const Footer: React.FC = () => {
           <div className="flex flex-col space-y-3">
             <h3 className="text-lg font-serif mb-4 text-gold">Contact Us</h3>
             <p className="text-gray-300 text-sm">123 Luxury Lane</p>
-            <p className="text-gray-300 text-sm">Beverly Hills, CA 90210</p>
+            <p className="text-gray-300 text-sm">Egypt</p>
             <p className="text-gray-300 text-sm">contact@beautytime.com</p>
-            <p className="text-gray-300 text-sm">+1 (888) 555-LUXE</p>
+            <p className="text-gray-300 text-sm">+20 1234567890</p>
           </div>
         </div>
         
