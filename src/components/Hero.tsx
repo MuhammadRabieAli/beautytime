@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
           </p>
           <div className="space-x-6">
             <Link to="/products" className="btn-primary">Discover Collection</Link>
-            <Link to="/about" className="btn-secondary">Our Story</Link>
+            
           </div>
         </div>
       </div>
