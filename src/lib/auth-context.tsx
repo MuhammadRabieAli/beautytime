@@ -61,7 +61,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.success('Logged in successfully');
       return true;
     } catch (error) {
-      toast.error('Failed to login. Please check your credentials.');
+      console.error('Login error details:', error);
+      
+      if (error instanceof Error) {
+        if (error.message.includes('Failed to fetch') || error.message.includes('Cannot connect')) {
+          toast.error('Cannot connect to the server. Please check if the backend is running.');
+        } else if (error.message === 'Invalid credentials') {
+          toast.error('Invalid email or password. Please try again.');
+        } else {
+          toast.error(`Login error: ${error.message}`);
+        }
+      } else {
+        toast.error('Failed to login. Please check your credentials.');
+      }
+      
       return false;
     } finally {
       setLoading(false);

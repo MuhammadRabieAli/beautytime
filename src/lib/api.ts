@@ -1,7 +1,9 @@
 // API Service for Beauty Time
 
 // Base API URL
-const API_URL = 'http://localhost:5000/api';
+const API_URL = process.env.NODE_ENV === 'production'
+  ? 'https://beautytime.onrender.com/api'  // Production API on Render
+  : 'http://localhost:5000/api';           // Local development
 
 // Helper for local storage
 const getToken = () => localStorage.getItem('beauty_admin_token');

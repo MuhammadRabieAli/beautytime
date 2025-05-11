@@ -39,7 +39,10 @@ const getAllProducts = async (req, res) => {
     for (let i = 0; i < products.length; i++) {
       if (products[i].image && products[i].image.startsWith('/uploads/')) {
         // This is a relative path, update it to an absolute URL
-        const absoluteUrl = `http://localhost:5000${products[i].image}`;
+        const baseUrl = process.env.NODE_ENV === 'production'
+          ? 'https://beautytime.onrender.com'
+          : 'http://localhost:5000';
+        const absoluteUrl = `${baseUrl}${products[i].image}`;
         console.log(`Converting relative image path to absolute: ${products[i].image} -> ${absoluteUrl}`);
         products[i].image = absoluteUrl;
         
@@ -100,7 +103,10 @@ const createProduct = async (req, res) => {
     if (req.file) {
       // Set the image URL to the uploaded file path
       // Use absolute URL to ensure the image is accessible
-      req.body.image = `http://localhost:5000/uploads/${req.file.filename}`;
+      const baseUrl = process.env.NODE_ENV === 'production'
+        ? 'https://beautytime.onrender.com'
+        : 'http://localhost:5000';
+      req.body.image = `${baseUrl}/uploads/${req.file.filename}`;
       console.log('New image path:', req.body.image);
     }
     
@@ -131,7 +137,10 @@ const updateProduct = async (req, res) => {
     if (req.file) {
       // Set the image URL to the uploaded file path
       // Use absolute URL to ensure the image is accessible
-      updateData.image = `http://localhost:5000/uploads/${req.file.filename}`;
+      const baseUrl = process.env.NODE_ENV === 'production'
+        ? 'https://beautytime.onrender.com'
+        : 'http://localhost:5000';
+      updateData.image = `${baseUrl}/uploads/${req.file.filename}`;
       console.log('New image path:', updateData.image);
     } else if (req.body.imageUrl) {
       // If no new file but imageUrl is provided, use that

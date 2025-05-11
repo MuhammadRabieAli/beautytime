@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { AlertCircle, CheckCircle2, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = process.env.NODE_ENV === 'production'
+  ? 'https://beautytime.onrender.com/api'  // Production API on Render 
+  : 'http://localhost:5000/api';           // Local development
 
 const ServerStatusChecker: React.FC = () => {
   const [status, setStatus] = useState<'loading' | 'online' | 'offline'>('loading');
