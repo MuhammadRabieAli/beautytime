@@ -67,9 +67,7 @@ const Index: React.FC = () => {
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Each bottle represents hundreds of hours of artisanal craftsmanship, from the initial concept to the final composition. This dedication to excellence has made Beauty Time a symbol of luxury and refinement.
               </p>
-              <Link to="/about" className="group inline-flex items-center text-gold hover:text-gold-dark transition-colors font-medium">
-                Discover Our Story <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              
             </div>
             <div className="relative h-[400px] md:h-[500px]">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1607960402358-a5ceb04ebeb4?q=80&w=1462&auto=format&fit=crop')] bg-cover bg-center rounded-sm shadow-soft"></div>
